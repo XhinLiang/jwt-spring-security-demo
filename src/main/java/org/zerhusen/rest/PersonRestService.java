@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.common.collect.ImmutableList;
+
 @RestController
 public class PersonRestService {
 
-    private static final List<Person> persons;
-
-    static {
-        persons = new ArrayList<>();
-        persons.add(new Person("Hello", "World"));
-        persons.add(new Person("Foo", "Bar"));
-    }
+    private static List<Person> persons = ImmutableList.of(new Person("hello", "world"), //
+            new Person("foo", "bar")); //
 
     @RequestMapping(path = "/persons", method = RequestMethod.GET)
     public static List<Person> getPersons() {
