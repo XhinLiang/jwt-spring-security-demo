@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 public class PersonRestService {
+
     private static final List<Person> persons;
 
     static {
@@ -25,8 +26,9 @@ public class PersonRestService {
 
     @RequestMapping(path = "/persons/{name}", method = RequestMethod.GET)
     public static Person getPerson(@PathVariable("name") String name) {
-        return persons.stream()
-                .filter(person -> name.equalsIgnoreCase(person.getName()))
-                .findAny().orElse(null);
+        return persons.stream() //
+                .filter(person -> name.equalsIgnoreCase(person.getName())) //
+                .findAny() //
+                .orElse(null);
     }
 }

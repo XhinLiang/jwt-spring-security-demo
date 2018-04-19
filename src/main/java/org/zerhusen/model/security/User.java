@@ -64,10 +64,9 @@ public class User {
     private Date lastPasswordResetDate;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "USER_AUTHORITY",
-            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
+    @JoinTable(name = "USER_AUTHORITY", joinColumns = {
+            @JoinColumn(name = "USER_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
+                    @JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID") })
     private List<Authority> authorities;
 
     public Long getId() {
